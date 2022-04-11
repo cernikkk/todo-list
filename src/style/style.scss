@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap");
+
+@import "~normalize.css/normalize";
+@import " ~rfs/scss";
+@import "./variables";
+@import "./mixins";
+@import "./emoji-picker";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: $mainBackgroundColor;
+  font-family: "Rubik", sans-serif;
+}
+
+#container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+header {
+  flex: 0 1 auto;
+  @include font-size($headerFontSize);
+  @include alignFlex(space-between);
+  @include padding(1rem 2rem);
+  margin: $mainSpacing;
+  color: $mainFontColor;
+  background: $cardBackgroundColor;
+  border-radius: $cardBorderRadius;
+  box-shadow: $mainShadow;
+  .logo {
+    @include alignFlex();
+    gap: 0.3em;
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .google-login {
+    @include padding(0.3rem 0.8rem);
+    font-size: 0.8em;
+    border: 0;
+    border-radius: 0.3em;
+    background: $accentColor;
+    color: $mainFontColor;
+    &:hover {
+      background: $hoverAccentColor;
+    }
+  }
+}
+
+.main {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 0 $mainSpacing $mainSpacing $mainSpacing;
+  border-radius: $cardBorderRadius;
+  gap: $mainSpacing;
+  > div {
+    background: $cardBackgroundColor;
+    border-radius: $cardBorderRadius;
+    box-shadow: $mainShadow;
+  }
+}
+
+.lists {
+  @include alignFlex(flex-start, flex-start, column);
+  padding: $cardPadding 0;
+  gap: $listSpacing / 2;
+  > div {
+    width: 100%;
+  }
+
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    @include alignFlex(flex-start);
+    @include padding($listSpacing $cardPadding);
+    @include font-size($listFontSize);
+    gap: 0.5em;
+    text-decoration: none;
+    color: $mainFontColor;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  .selected {
+    background-color: $accentColor;
+  }
+}
+
+hr {
+  width: 90%;
+  margin: 0;
+  align-self: center;
+  color: $cardBackgroundColor;
+  border: 0;
+  border-top: 2px solid;
+}
+
+.top-bar {
+  @include alignFlex(space-between);
+  @include padding($titlePadding);
+  @include font-size($titleFontSize);
+  color: $mainFontColor;
+  font-weight: 400;
+  > div {
+    @include alignFlex();
+    gap: 0.5em;
+  }
+  .add-todo {
+    @include alignFlex();
+    font-size: 1em;
+    border: 0;
+    border-radius: 0.3em;
+    background: $accentColor;
+    color: $mainFontColor;
+    width: 1.5em;
+    height: 1.5em;
+    &:hover {
+      background: $hoverAccentColor;
+    }
+  }
+}
+.list ul {
+  padding: 0;
+  color: $mainFontColor;
+  font-weight: 400;
+  margin: 0;
+  hr {
+    margin: 0.2rem 0;
+    width: 100%;
+  }
+}
+.list li {
+  position: relative;
+  @include alignFlex(space-between);
+  margin: $todoSpacing $titlePadding;
+  margin-left: calc(
+    calc($titlePadding + $priorityDotSize) + $inlineTodoSpacing
+  );
+  white-space: nowrap;
+  div {
+    @include alignFlex();
+    gap: $inlineTodoSpacing;
+    .todo-due-date {
+      color: $secondaryFontColor;
+      font-size: 0.9em;
+      font-weight: 300;
+      margin-left: $inlineTodoSpacing;
+    }
+    .delete-todo {
+      @include alignFlex();
+      border: 0;
+      border-radius: 0.3em;
+      background: $cardBackgroundColor;
+      color: $mainFontColor;
+      width: 1.4em;
+      height: 1.4em;
+      &:hover {
+        background: $hoverAccentColor;
+      }
+    }
+  }
+}
+
+.checked .todo-title{
+  color: $greyedOutFontColor;
+  text-decoration: line-through;
+}
+
+.priority-0::before {
+  @include priorityDots;
+  background: $priority0Color;
+}
+.priority-1::before {
+  @include priorityDots;
+  background: $priority1Color;
+}
+.priority-2::before {
+  @include priorityDots;
+  background: $priority2Color;
+}
+.priority-3::before {
+  @include priorityDots;
+  background: $priority3Color;
+}
+
+.description {
+  display: none;
+  .title-container {
+    @include padding($titlePadding);
+    @include font-size($titleFontSize);
+    box-sizing: border-box;
+    color: $mainFontColor;
+    font-weight: 400;
+    font-size: $titleFontSize;
+    margin: 0;
+    input {
+      height: 1.5em;
+    }
+  }
+
+  .description-container,
+  .wrapper {
+    margin: $todoSpacing $titlePadding;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+  }
+  .wrapper {
+    justify-content: space-between;
+    div {
+      color: $greyedOutFontColor;
+      position: relative;
+    }
+  }
+
+  div {
+    @include alignFlex();
+  }
+  input {
+    background: transparent;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    color: $mainFontColor;
+
+    &::placeholder {
+      color: $secondaryFontColor;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    @include padding(0.3rem 0.8rem);
+    font-size: 0.8em;
+    border: 0;
+    border-radius: 0.3em;
+    background: $accentColor;
+    color: $mainFontColor;
+    &:hover {
+      background: $hoverAccentColor;
+    }
+  }
+}
+
+.priority-buttons {
+  @include alignFlex();
+  gap: 5px;
+  input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+  label {
+    display: flex;
+    background: transparent;
+    color: $mainFontColor;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: $secondaryFontColor;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+}
+#priority-0 + label {
+  border: $priorityBtnBorderWidth solid $priority0Color;
+}
+#priority-1 + label {
+  border: $priorityBtnBorderWidth solid $priority1Color;
+}
+#priority-2 + label {
+  border: $priorityBtnBorderWidth solid $priority2Color;
+}
+#priority-3 + label {
+  border: $priorityBtnBorderWidth solid $priority3Color;
+}
+
+#priority-0:checked + label {
+  background: $priority0Color;
+  border: $priorityBtnBorderWidth solid darken($priority0Color, 20%);
+  color: $mainFontColor;
+}
+#priority-1:checked + label {
+  background: $priority1Color;
+  border: $priorityBtnBorderWidth solid darken($priority1Color, 20%);
+  color: $mainFontColor;
+
+}
+#priority-2:checked + label {
+  background: $priority2Color;
+  border: $priorityBtnBorderWidth solid darken($priority2Color, 20%);
+  color: $mainFontColor;
+
+}
+#priority-3:checked + label {
+  background: $priority3Color;
+  border: $priorityBtnBorderWidth solid darken($priority3Color, 20%);
+  color: $mainFontColor;
+
+}
+
+
+//BUTTON TEST
+
+* {
+  box-sizing: border-box;
+
+}
+.add-list {
+  margin: 0 auto;
+    align-items: center;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 1em;
+    justify-content: center;
+    line-height: 1em;
+    width:  50%;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:active,
+    button:hover {
+     outline: 0;
+    }
+    span {
+      background-color: rgb(5, 6, 45);
+      padding: 6px 24px;
+      border-radius: 6px;
+      width: 100%;
+      height: 100%;
+      transition: 300ms;
+     }
+     &:hover span {
+      background: none;
+     }
+     &:active {
+      transform: scale(0.9);
+     }
+   }

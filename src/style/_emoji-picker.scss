@@ -1,0 +1,71 @@
+unicode-emoji-picker {
+  
+  font-size: 1.1rem;
+  
+    /* Dimensions of the viewport (doesn't include the filters bar) */
+    --min-width: 15.3em; /* 6 emojis wide */
+    --min-height: 11.5em; /* 4 emojis tall */
+    --max-width: 100%; /* 11 emojis wide */
+    --max-height: 12em; /* 10 emojis tall */
+  
+    /* Global */
+    --fill-color: #fff;
+    --text-color: #111;
+    --border-radius: 0;
+    --box-shadow: 0;
+    --transition: 150ms cubic-bezier(0, 0, .2, .1);
+    --emoji-font-family: apple color emoji, segoe ui emoji, noto color emoji, android emoji, emojisymbols, emojione mozilla, twemoji mozilla, segoe ui symbol;
+  
+    /* Filters bar */
+    --filters-border-width: 1px;
+    --filters-border-color: #e4e4e4;
+    --filter-fill-color: transparent;
+    --filter-fill-color-hover: #e9e9e9;
+    --filter-border-radius: 8px;
+    --filter-active-marker-border-width: 2px;
+    --filter-active-marker-border-color: #aaa;
+  
+    /* Content's viewport */
+    --content-scrollbar-thumb-fill-color: #d7d7d7;
+    --content-scrollbar-thumb-fill-color-hover: #aaa;
+  
+    /* Title/search bar */
+    --title-bar-fill-color: rgba(255, 255, 255, 0.95);
+    --search-input-padding: 0.35em 0.4em 0.55em;
+    --search-input-border-width: 0 0 4px 0;
+    --search-input-border-color: #e4e4e4;
+    --search-input-border-color-hover: #222;
+  
+    /* Emojis */
+    --emoji-fill-color: transparent;
+    --emoji-fill-color-hover: transparent;
+    --emoji-border-width: 2px;
+    --emoji-border-color: transparent;
+    --emoji-border-color-hover: #d7d7d7;
+    --emoji-border-radius: 8px;
+  
+    /* Variations panel */
+    --variations-backdrop-fill-color: rgba(255, 255, 255, 0.7);
+    --variations-fill-color: var(--fill-color);
+    --variations-border-radius: var(--border-radius);
+    --variations-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2), 0 1px 3px 0 rgba(0, 0, 0, .2);
+    --emoji-variation-marker-size: 8px;
+    --emoji-variation-marker-border-width: 4px;
+    --emoji-variation-marker-border-color: #d7d7d7;
+    --emoji-variation-marker-border-color-hover: #aaa;
+  
+    --fill-color: transparent;
+    --text-color: #fffffc;
+    --filters-border-color: #30302a;
+    --filter-fill-color-hover: #454540;
+    --content-scrollbar-thumb-fill-color: #50504a;
+    --content-scrollbar-thumb-fill-color-hover: #76766f;
+    --filter-active-marker-border-color: #595955;
+    --title-bar-fill-color: rgba(57, 57, 55, 0.96);
+    --search-input-border-color: #50504a;
+    --search-input-border-color-hover: #eee;
+    --emoji-border-color-hover: #595955;
+    --variations-backdrop-fill-color: rgba(57, 57, 55, 0.8);
+    --emoji-variation-marker-border-color: #50504a;
+    --emoji-variation-marker-border-color-hover: #76766f;
+  }

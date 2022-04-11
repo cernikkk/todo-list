@@ -1,0 +1,21 @@
+@mixin alignFlex($horizontal: center, $vertical: center, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+
+  @if $direction == row or $direction == row-reverse {
+    justify-content: $horizontal;
+    align-items: $vertical;
+  } @else if $direction == column or $direction == column-reverse {
+    justify-content: $vertical;
+    align-items: $horizontal;
+  }
+}
+
+@mixin priorityDots {
+  content: "";
+  position: absolute;
+  width: $priorityDotSize;
+  height: $priorityDotSize;
+  left: -$priorityDotSize - $inlineTodoSpacing;
+  border-radius: 50%;
+}

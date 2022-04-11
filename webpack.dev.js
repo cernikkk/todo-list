@@ -8,11 +8,12 @@ module.exports = merge(common, {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1.146 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+          </svg>
+          <p>TO DO LIST</p>
+        </div>
+        <div>
+          <!-- <div class="toggle-theme"></div> -->
+          <button type="button" class="google-login">Login</button>
+        </div>
+      </header>
+      <div class="main">
+        <div class="lists">
+          <div class="all">
+            <a href="">
+              <div class="list-emoji">🎯</div>
+              <div class="list-title">All</div>
+            </a>
+          </div>
+          <hr>
+          <div class="named-lists">
+            <ul>
+              <li>
+                <a href="" class="selected">
+                  <div class="list-emoji">📩</div>
+                  <div class="list-title">Personal</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="list-emoji">✊</div>
+                  <div class="list-title">Workout</div>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <div class="list-emoji">🎂</div>
+                  <div class="list-title">School</div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+          <div class="completed">
+            <a href="">
+              <div class="list-emoji">📪</div>
+              <div class="list-title">Completed</div>
+            </a>
+          </div>
+        </div>
+        <div class="todos">
+          <div class="top-bar">
+            <div>
+              <div class="list-emoji">📩</div>
+              <div class="list-title">Personal</div>
+            </div>
+            <button type="button" class="add-todo">&#43</button>
+          </div>
+          <div class="list">
+            <ul>
+              <li class="priority-none">
+                <div>
+                  <input type="checkbox" class="checkbox"/>
+                  <div class="todo-title">Do homework</div>
+                </div>
+                <div>
+                  <div class="todo-due-date">04 / 20 / 22</div>
+                  <button type="button" class="delete-todo">&#215</button>
+                </div>
+              </li>
+              <li class="priority-1">
+                <div>
+                  <input type="checkbox" class="checkbox"/>
+                  <div class="todo-title">Code website</div>
+                </div>
+                <div>
+                  <div class="todo-due-date">05 / 01 / 22</div>
+                  <button type="button" class="delete-todo">&#215</button>
+                </div>
+              </li>
+              <li class="priority-2">
+                <div>
+                  <input type="checkbox" class="checkbox"/>
+                  <div class="todo-title">Walk the dog</div>
+                </div>
+                <div>
+                  <div class="todo-due-date"></div>
+                  <button type="button" class="delete-todo">&#215</button>
+                </div>
+              </li>
+              <li class="priority-3">
+                <div>
+                  <input type="checkbox" class="checkbox"/>
+                  <div class="todo-title">Change OS</div>
+                </div>
+                <div>
+                  <div class="todo-due-date"></div>
+                  <button type="button" class="delete-todo">&#215</button>
+                </div>
+              </li>
+              <hr>
+              <li class="priority-none completed">
+                <div>
+                  <input type="checkbox" class="checkbox" checked/>
+                  <div class="todo-title">Bake cake</div>
+                </div>
+                <div>
+                  <div class="todo-due-date"></div>
+                  <button type="button" class="delete-todo">&#215</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="description">
+          <!-- <div>
+            <p class="todo-title"></p>
+            <button type="button" class="edit-todo">E</button>
+          </div>
+          <p class="todo-description"></p>
+          <p class="todo-priority"></p>
+          <p class="todo-due-date"></p> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
